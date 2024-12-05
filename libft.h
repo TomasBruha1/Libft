@@ -6,7 +6,7 @@
 /*   By: tbruha <tbruha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:44:18 by tbruha            #+#    #+#             */
-/*   Updated: 2024/12/05 15:39:42 by tbruha           ###   ########.fr       */
+/*   Updated: 2024/12/05 16:20:45 by tbruha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 // ** // MY FTs
+
+void	ft_putunsignbr_fd(unsigned int nb, int fd);
 
 #endif
