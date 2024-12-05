@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbruha <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tbruha <tbruha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:44:18 by tbruha            #+#    #+#             */
-/*   Updated: 2024/06/10 16:44:21 by tbruha           ###   ########.fr       */
+/*   Updated: 2024/12/05 15:39:42 by tbruha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,6 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-
-typedef struct s_stack
-{
-	void			*content;
-	struct s_stack;	*next;
-	struct s_stack;	*previous;
-}					t_stack;
 
 // FT PROTOTYPES by LIBRARY
 
@@ -93,8 +86,5 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 // ** // MY FTs
-
-void	ft_lstadd_backdouble(t_stack **lst, t_stack *new);
-
 
 #endif

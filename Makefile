@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tbruha <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: tbruha <tbruha@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 15:03:16 by tbruha            #+#    #+#              #
-#    Updated: 2024/05/31 15:03:22 by tbruha           ###   ########.fr        #
+#    Updated: 2024/12/05 15:41:58 by tbruha           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,17 +38,17 @@ BONUS_OBJ	:=	$(BONUS_SRC:%.c=%.o)
 all:	$(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) $^
-	$(LIB)
+	@$(AR) $^
+	@$(LIB)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -o $@ -c $<	
+	@$(CC) $(CFLAGS) -o $@ -c $<	
 
 clean:
-	$(RM) $(OBJ) $(BONUS_OBJ)
+	@$(RM) $(OBJ) $(BONUS_OBJ)
 
 fclean:		clean
-	$(RM) $(NAME) $(BONUS_OBJ)
+	@$(RM) $(NAME) $(BONUS_OBJ)
 
 re:	fclean all
 
