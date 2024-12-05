@@ -6,14 +6,14 @@
 #    By: tbruha <tbruha@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 15:03:16 by tbruha            #+#    #+#              #
-#    Updated: 2024/12/05 15:41:58 by tbruha           ###   ########.fr        #
+#    Updated: 2024/12/05 20:20:00 by tbruha           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
 AR		= ar rcs $(NAME)
 LIB		= ranlib $(NAME)
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 RM		= rm -f
 CC		= cc # pointless now but let's keep it for future updates
 
@@ -29,30 +29,37 @@ SRC		= 	ft_bzero.c ft_isalnum.c	ft_isalpha.c ft_isascii.c \
 
 BONUS_SRC =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
-			ft_lstmap.c
+			ft_lstmap.c ft_itoa_unsigned.c ft_putunsignbr_fd.c
 
 OBJ		:=	$(SRC:%.c=%.o)
 
 BONUS_OBJ	:=	$(BONUS_SRC:%.c=%.o)
 
-all:	$(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJ)
-	@$(AR) $^
-	@$(LIB)
+$(NAME): printf $(OBJ) bonus
+	@$(AR) $(OBJ) $(BONUS_OBJ)
+	$(LIB)
+
+printf:
+	@make -C ft_printf
+	@cp ft_printf/libftprintf.a ./
+	@mv libftprintf.a $(NAME)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -o $@ -c $<	
 
 clean:
 	@$(RM) $(OBJ) $(BONUS_OBJ)
+	@make clean -C ft_printf/
 
-fclean:		clean
+fclean:	clean
 	@$(RM) $(NAME) $(BONUS_OBJ)
+	@make fclean -C ft_printf/
 
 re:	fclean all
 
 bonus:	$(BONUS_OBJ)
-	$(AR) $(BONUS_OBJ) $(NAME)
+	@$(AR) $^ $(NAME)
 
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re bonus printf
