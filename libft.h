@@ -6,7 +6,7 @@
 /*   By: tbruha <tbruha@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:44:18 by tbruha            #+#    #+#             */
-/*   Updated: 2024/12/05 17:09:11 by tbruha           ###   ########.fr       */
+/*   Updated: 2024/12/06 11:58:09 by tbruha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <stdio.h>
 # include <ctype.h>
 # include <unistd.h>
+# include "ft_printf/ft_printf.h"
 
 // STRUCT - BONUS
 
